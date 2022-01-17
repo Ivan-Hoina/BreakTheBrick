@@ -9,16 +9,16 @@ namespace BreakTheBrick
         public static UnityEvent<Vector3> OnSwipe = new UnityEvent<Vector3>();
         public static UnityEvent<Vector3> OnSwipeEnd = new UnityEvent<Vector3>();
 
-        [SerializeField] private float rayCastDistance = 100f;
+        [Tooltip("Layermask. Needed to find a position on a swipe object")]
         [SerializeField] private LayerMask swipeLayerMask;
-        [SerializeField] private SwipeObject swipeObject;
 
         private bool isSwiping;
         private Vector2 swipeDelta;
         private Vector2 beginPosition;
         private Vector2 currentPosition;
         private Camera mainCamera;
-        
+        private SwipeObject swipeObject;
+
         private void Awake()
         {
             mainCamera = Camera.main;
@@ -33,7 +33,7 @@ namespace BreakTheBrick
             if (Input.GetMouseButtonDown(0))
             {
                 ray = mainCamera.ScreenPointToRay((Vector2)Input.mousePosition);
-                if(Physics.Raycast(ray, out hitInfo, rayCastDistance, swipeLayerMask))
+                if(Physics.Raycast(ray, out hitInfo, 100f, swipeLayerMask))
                 {
                     if(hitInfo.transform.TryGetComponent(out swipeObject))
                     {
@@ -61,7 +61,7 @@ namespace BreakTheBrick
                 if (touch.phase == TouchPhase.Began)
                 {
                     ray = mainCamera.ScreenPointToRay(touch.position);
-                    if (Physics.Raycast(ray, out hitInfo, rayCastDistance, swipeLayerMask))
+                    if (Physics.Raycast(ray, out hitInfo, 100f, swipeLayerMask))
                     {
                         if (hitInfo.transform.TryGetComponent(out swipeObject))
                         {
@@ -119,7 +119,7 @@ namespace BreakTheBrick
         private Vector2 GetMousePosition()
         {
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, rayCastDistance, swipeLayerMask))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, swipeLayerMask))
             {
                 if (hitInfo.transform.TryGetComponent(out SwipeObject swipeObject))
                     currentPosition = hitInfo.textureCoord;
@@ -130,7 +130,7 @@ namespace BreakTheBrick
         private Vector2 GetTouchPosition(Touch touch)
         {
             Ray ray = mainCamera.ScreenPointToRay(touch.position);
-            if (Physics.Raycast(ray, out RaycastHit hitInfo, rayCastDistance, swipeLayerMask))
+            if (Physics.Raycast(ray, out RaycastHit hitInfo, 100f, swipeLayerMask))
             {
                 if (hitInfo.transform.TryGetComponent(out SwipeObject swipeObject))
                     currentPosition = hitInfo.textureCoord;

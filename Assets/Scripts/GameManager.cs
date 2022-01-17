@@ -22,7 +22,7 @@ namespace BreakTheBrick
         }
         #endregion
 
-        [SerializeField] private InputSystem inputSystem;
+        [SerializeField] private InputSystem _inputSystem;
 
         public bool IsPaused { get => _isPaused; }
 
@@ -46,14 +46,14 @@ namespace BreakTheBrick
         {
             Time.timeScale = 1f;
             _isPaused = false;
-            inputSystem.Enable();
+            _inputSystem.Enable();
         }
 
         public void Pause()
         {
             Time.timeScale = 0;
             _isPaused = true;
-            inputSystem.Disable();
+            _inputSystem.Disable();
         }
 
         public void Quit()

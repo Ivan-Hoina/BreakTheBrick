@@ -6,6 +6,7 @@ namespace BreakTheBrick
     public class DifficultyManager : MonoBehaviour
     {
         public static UnityEvent<int> OnDifficultyChange = new UnityEvent<int>();
+
         private int _level;
 
         private void Awake()

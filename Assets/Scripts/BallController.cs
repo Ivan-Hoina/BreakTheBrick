@@ -26,14 +26,17 @@ namespace BreakTheBrick
 
         public Vector3 Position { get => transform.position; }
 
-        private bool _isThrown = false;
-        private float _speed = 10f;
-        private float _lifeTime = 10f;
+        private bool _isThrown;
+        private float _speed;
+        private float _lifeTime;
         private Vector3 _defaultPosition;
         private Rigidbody _rigidbody;
 
         private void Initialize()
         {
+            _isThrown = false;
+            _speed = 10f;
+            _lifeTime = 10f;
             _defaultPosition = transform.position;
             _rigidbody = GetComponent<Rigidbody>();
             _rigidbody.isKinematic = true;
@@ -52,8 +55,7 @@ namespace BreakTheBrick
             // If the magnitude less than 0.55, set the minimum value
             float magnitude = vector.magnitude < 0.55f ? 0.55f : vector.magnitude;
 
-            float force = magnitude * _speed;
-            Debug.Log("Force: " + force);
+            float force = magnitude * _speed;            
 
             _rigidbody.isKinematic = false;
             _rigidbody.AddForce(vector * force, ForceMode.VelocityChange);

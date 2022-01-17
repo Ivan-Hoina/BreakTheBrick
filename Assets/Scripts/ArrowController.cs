@@ -5,14 +5,14 @@ namespace BreakTheBrick
     [RequireComponent(typeof(LineRenderer))]
     public class ArrowController : MonoBehaviour
     {
-        private LineRenderer lineRenderer;
-        private Vector3 defaultPointPosition;
+        private LineRenderer _lineRenderer;
+        private Vector3 _defaultPointPosition;
 
         private void Awake()
         {
-            lineRenderer = GetComponent<LineRenderer>();
-            lineRenderer.enabled = false;
-            defaultPointPosition = lineRenderer.GetPosition(1);
+            _lineRenderer = GetComponent<LineRenderer>();
+            _lineRenderer.enabled = false;
+            _defaultPointPosition = _lineRenderer.GetPosition(1);
 
             InputSystem.OnSwipeBegin.AddListener(OnSwipeBegin);
             InputSystem.OnSwipe.AddListener(OnSwipe);
@@ -21,7 +21,7 @@ namespace BreakTheBrick
 
         private void OnSwipeBegin()
         {
-            lineRenderer.enabled = true;
+            _lineRenderer.enabled = true;
         }
 
         private void OnSwipe(Vector3 origin)
@@ -29,13 +29,13 @@ namespace BreakTheBrick
             if (Time.timeScale == 0)
                 return;
 
-            lineRenderer.SetPosition(1, defaultPointPosition + origin * 1.5f);
+            _lineRenderer.SetPosition(1, _defaultPointPosition + origin * 1.5f);
         }
 
         private void OnSwipeEnd(Vector3 origin)
         {
-            lineRenderer.SetPosition(1, defaultPointPosition);
-            lineRenderer.enabled = false;
+            _lineRenderer.SetPosition(1, _defaultPointPosition);
+            _lineRenderer.enabled = false;
         }
     }
 }

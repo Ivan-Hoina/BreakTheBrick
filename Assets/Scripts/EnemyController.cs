@@ -6,6 +6,7 @@ namespace BreakTheBrick
     {
         private float _moveStep;
         private BallController _ballController;
+
         private void Start()
         {
             _moveStep = 0.01f;

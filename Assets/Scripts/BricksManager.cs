@@ -7,26 +7,26 @@ namespace BreakTheBrick
     {
         public static UnityEvent OnAllBricksDestroyed = new UnityEvent();
 
-        private int brokenBricks;
-        [SerializeField] private BrickController[] bricks;
+        private int _brokenBricks;
+        [SerializeField] private BrickController[] _bricks;
 
         private void Awake()
         {
-            brokenBricks = 0;
+            _brokenBricks = 0;
             BrickController.OnBrickBrokenEvent.AddListener(OnBrickBroken);
         }
 
         private void OnBrickBroken()
         {
-            brokenBricks++;
-            if (brokenBricks == 3)
+            _brokenBricks++;
+            if (_brokenBricks == 3)
                 ReCreateBricks();
         }
 
         private void ReCreateBricks()
         {
-            brokenBricks = 0;
-            foreach(BrickController brickController in bricks)
+            _brokenBricks = 0;
+            foreach(BrickController brickController in _bricks)
             {
                 brickController.Restart();
             }
