@@ -482,10 +482,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7d36af07c0c0674d881a362d6a91871, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bricks:
-  - {fileID: 788011980}
-  - {fileID: 1397851117}
-  - {fileID: 1704367814}
+  _bricks: []
 --- !u!1 &391725922
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,7 +550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b467ef2373fc04eafaf28b6464b282, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputSystem: {fileID: 1960610502}
+  _inputSystem: {fileID: 1960610502}
 --- !u!4 &508251531
 Transform:
   m_ObjectHideFlags: 0
@@ -1329,17 +1326,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 762087945}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &788011980 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4554769349743009150, guid: 723910b8cc8a9384b829816cae88f11a, type: 3}
-  m_PrefabInstance: {fileID: 207631170847676704}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a06a45fbcbeb044daac5afed6a58215, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &888186463
 GameObject:
   m_ObjectHideFlags: 0
@@ -2146,17 +2132,6 @@ MonoBehaviour:
   playButton: {fileID: 2000000078}
   pauseButton: {fileID: 1610466491}
   pauseText: {fileID: 938511424}
---- !u!114 &1397851117 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4554769349743009150, guid: 723910b8cc8a9384b829816cae88f11a, type: 3}
-  m_PrefabInstance: {fileID: 650228381}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a06a45fbcbeb044daac5afed6a58215, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1430778321
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,17 +2712,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1612002875}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1704367814 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4554769349743009150, guid: 723910b8cc8a9384b829816cae88f11a, type: 3}
-  m_PrefabInstance: {fileID: 187492788}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0a06a45fbcbeb044daac5afed6a58215, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1759355476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2873,11 +2837,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16679238ac9bec547af083de19975f68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayCastDistance: 100
   swipeLayerMask:
     serializedVersion: 2
     m_Bits: 64
-  swipeObject: {fileID: 543850049}
 --- !u!4 &1960610503
 Transform:
   m_ObjectHideFlags: 0
